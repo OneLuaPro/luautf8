@@ -4,6 +4,8 @@ ucd/
 ucd.*/
 *.dll
 *.o
+*.*~
+build64
 
 lua-utf8.so
 lua-utf8.so.*

@@ -1,18 +1,8 @@
 # UTF-8 module for Lua 5.x
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/starwing/luautf8/test.yml?branch=master)](https://github.com/starwing/luautf8/actions?query=branch%3Amaster)[![Coverage Status](https://img.shields.io/coveralls/github/starwing/luautf8)](https://coveralls.io/github/starwing/luautf8?branch=master)
+This module adds UTF-8 support to Lua. It uses data extracted from the [Unicode Character Database](http://www.unicode.org/reports/tr44/), and is tested on Lua 5.2.3, Lua 5.3.0, Lua 5.4.8 and LuaJIT.
 
-This module adds UTF-8 support to Lua.
-
-It uses data extracted from the
-[Unicode Character Database](http://www.unicode.org/reports/tr44/),
-and is tested on Lua 5.2.3, Lua 5.3.0, Lua 5.4.8 and LuaJIT.
-
-`parseucd.lua` is a pure Lua script that generates `unidata.h` to support
-character conversion and category checking.
-
-It is compatible with Lua's own string module and passes all
-string and pattern matching tests in the Lua test suite[2].
+`parseucd.lua` is a pure Lua script that generates `unidata.h` to support character conversion and category checking. It is compatible with Lua's own string module and passes all string and pattern matching tests in the Lua test suite (http://www.lua.org/tests/5.2/).
 
 It also adds some useful routines for UTF-8 features, such as:
 - A convenient interface to escape Unicode sequences in strings
@@ -22,25 +12,11 @@ It also adds some useful routines for UTF-8 features, such as:
 - Checking UTF-8 strings for validity and removing invalid byte sequences
 - Converting Unicode strings to Normal Form C
 
-Note that to avoid conflict with Lua 5.3+'s built-in library `utf8`,
-this library produces a file like `lua-utf8.dll` or `lua-utf8.so`, so use
-it like this:
+Note that to avoid conflict with Lua 5.3+'s built-in library `utf8`, this library produces a file like `lua-utf8.dll` or `lua-utf8.so`, so use it like this:
 
 ```lua
 local utf8 = require 'lua-utf8'
 ```
-
-in your code :-(
-
-[2]: http://www.lua.org/tests/5.2/
-
-
-## LuaRocks Installation
-
-`luarocks install luautf8`
-
-It's now fully-compatible with Lua 5.3's utf8 library, so replacing this
-file (and headers) with lutf8lib.c from the Lua 5.3 sources is also okay.
 
 ## Usage
 
@@ -57,12 +33,8 @@ Many routines are the same as Lua's string module:
 - `utf8.sub`
 - `utf8.upper`
 
-The documentation of these functions can be found in the Lua manual[3].
+The documentation of these functions can be found in the [Lua manual](https://www.lua.org/manual/5.4/manual.html#6.5). Some routines in the string module don't need Unicode support:
 
-[3]: https://www.lua.org/manual/5.4/manual.html#6.5
-
-
-Some routines in the string module don't need Unicode support:
 - `string.dump`
 - `string.format`
 - `string.rep`
@@ -74,7 +46,7 @@ Some routines are for compatibility with Lua's basic UTF-8 support library:
 - `utf8.codepoint`
 - `utf8.codes`
 
-See the Lua manual[3] for usage.
+See the Lua manual for usage.
 
 Some routines are new, providing Unicode-specific functions:
 
