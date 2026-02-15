@@ -107,8 +107,11 @@ endif()
 # plattform-independend sources
 target_sources(lua-utf8 PRIVATE lutf8lib.c unidata.h)
 # Install
-install(TARGETS lua-utf8 RUNTIME DESTINATION ${INSTALL_TOP_CDIR})
+install(TARGETS lua-utf8 RUNTIME DESTINATION "${INSTALL_TOP_CDIR}")
 
 # ------------------------------------------------------------------------------
 # Install docs and samples
-install(FILES README.html test.lua DESTINATION ${INSTALL_DOCDIR})
+install(FILES README.html DESTINATION "${INSTALL_DOCDIR}")
+install(FILES
+  test.lua test_compat.lua test_pm.lua GraphemeBreakTest.txt NormalizationTest.txt
+  DESTINATION "${INSTALL_DOCDIR}/test")
